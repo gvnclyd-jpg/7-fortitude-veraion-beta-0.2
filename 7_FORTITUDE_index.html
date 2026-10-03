@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>7 FORTITUDE</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;min-height:100vh;color:white;background:radial-gradient(circle at top,rgba(255,120,180,.25),transparent 35%),linear-gradient(135deg,#17051c,#3b0b35,#120714);overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;background-image:radial-gradient(circle,rgba(255,255,255,.7) 1px,transparent 1px);background-size:55px 55px;opacity:.15}
+.container{width:min(1100px,92%);margin:auto;padding:35px 0 60px}
+.hero{text-align:center;padding:45px 20px;border-radius:25px;background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.15);box-shadow:0 0 35px rgba(255,70,170,.25)}
+.hero h1{font-size:clamp(3rem,10vw,7rem);letter-spacing:12px;text-shadow:0 0 8px #ff65bd,0 0 25px #ff2299,0 0 50px #ff2299}
+.hero p{margin-top:10px;letter-spacing:5px;color:#ffc8e9}
+.section{margin-top:35px}
+.section-title{text-align:center;font-size:2rem;margin-bottom:20px;color:#ffb7df;text-shadow:0 0 15px #ff2299}
+.officers,.subjects,.rooms{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:18px}
+.officer,.subject{padding:22px;border-radius:18px;text-align:center;background:rgba(255,255,255,.07);border:1px solid rgba(255,150,220,.3);box-shadow:0 0 18px rgba(255,30,150,.12);transition:.3s}
+.officer:hover,.subject:hover{transform:translateY(-6px)}
+.officer h3,.subject h3{color:#ff8ccc;margin-bottom:8px}
+.officer p{font-size:1.15rem}
+.subject{min-height:120px;text-align:left}
+.subject h3{color:#ff9ed6}
+.room-btn{border:none;padding:18px;border-radius:15px;color:white;font-size:1rem;font-weight:bold;cursor:pointer;background:linear-gradient(135deg,#9d176d,#ff3ca9);box-shadow:0 0 18px rgba(255,45,170,.25);transition:.3s}
+.room-btn:hover{transform:translateY(-5px);box-shadow:0 0 30px rgba(255,45,170,.55)}
+.room{display:none;margin-top:25px;padding:30px;border-radius:20px;text-align:center;background:rgba(0,0,0,.4);border:1px solid rgba(255,150,220,.3)}
+.room.active{display:block}
+.room h2{color:#ff91d1;margin-bottom:12px}
+.room p{color:#f8d8eb;line-height:1.6}
+footer{text-align:center;margin-top:50px;color:#dca8c9;letter-spacing:3px}
+@media(max-width:600px){.hero{padding:35px 15px}.hero h1{letter-spacing:5px}.container{width:94%}}
+</style>
+</head>
+<body>
+<div class="container">
+<header class="hero"><h1>7 FORTITUDE</h1><p>PEAKEST SECTION</p></header>
+
+<section class="section">
+<h2 class="section-title">CLASS OFFICERS</h2>
+<div class="officers">
+<div class="officer"><h3>President</h3><p>Caitlyn</p></div>
+<div class="officer"><h3>Vice President</h3><p>Nerijen</p></div>
+<div class="officer"><h3>Secretary 1</h3><p>Jhex</p></div>
+<div class="officer"><h3>Secretary Assistant</h3><p>Andi</p></div>
+<div class="officer"><h3>PIO</h3><p>Audree, Moanna</p></div>
+<div class="officer"><h3>Muse</h3><p>Aiyana</p></div>
+<div class="officer"><h3>Escort</h3><p>Cholo</p></div>
+</div>
+</section>
+
+<section class="section">
+<h2 class="section-title">OUR SUBJECTS</h2>
+<div class="subjects">
+<div class="subject"><h3>Filipino</h3><p>Wika, panitikan, at kultura.</p></div>
+<div class="subject"><h3>TLE</h3><p>Practical skills and technology.</p></div>
+<div class="subject"><h3>Science</h3><p>Exploring the world through science.</p></div>
+<div class="subject"><h3>Values</h3><p>Building good character and values.</p></div>
+<div class="subject"><h3>AP</h3><p>Understanding society, history, and geography.</p></div>
+<div class="subject"><h3>MAPEH</h3><p>Music, arts, physical education, and health.</p></div>
+<div class="subject"><h3>Computer</h3><p>Technology and digital skills.</p></div>
+<div class="subject"><h3>English</h3><p>Communication, literature, and language.</p></div>
+<div class="subject"><h3>Math</h3><p>Numbers, logic, patterns, and problem solving.</p></div>
+</div>
+</section>
+
+<section class="section">
+<h2 class="section-title">SECRET ROOMS</h2>
+<div class="rooms">
+<button class="room-btn" onclick="openRoom('room1')">ROOM 1</button>
+<button class="room-btn" onclick="openRoom('room2')">ROOM 2</button>
+<button class="room-btn" onclick="openRoom('room3')">ROOM 3</button>
+<button class="room-btn" onclick="openRoom('room4')">ROOM 4</button>
+</div>
+
+<div id="room1" class="room"><h2>ROOM 1</h2><p>Welcome to one of the hidden rooms of 7 FORTITUDE.</p></div>
+<div id="room2" class="room"><h2>WHERE IT ALL STARTED</h2><p>This is where it all started.</p></div>
+<div id="room3" class="room"><h2>ONLY FORTITUDES</h2><p>Only Fortitudes.</p></div>
+<div id="room4" class="room"><h2>ROOM 4</h2><p>Gavin • Khalid • Cholo • Keefer</p><br><strong>URBAN LEGENDS</strong></div>
+</section>
+
+<footer>7 FORTITUDE © 2026</footer>
+</div>
+
+<script>
+function openRoom(roomId){
+document.querySelectorAll(".room").forEach(room=>room.classList.remove("active"));
+document.getElementById(roomId).classList.add("active");
+document.getElementById(roomId).scrollIntoView({behavior:"smooth",block:"center"});
+}
+</script>
+</body>
+</html>
